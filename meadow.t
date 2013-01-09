@@ -556,8 +556,8 @@ road: Room 'Road' 'road'
     }
 ;
 
-++ screwdriver: Thing 'large screwdriver'
-    
+++ screwdriver: Thing 'large screwdriver; study new'
+    "It looks the job, sturdy and new. "
     canScrewWithMe = true
 ;
 
