@@ -373,8 +373,8 @@ loft: Room 'Hay Loft' 'hay loft'
     destination = barn
 ;
 
-+ sack: Container 'old sack'
-    
++ sack: Container 'old sack; rough brown'
+    "It's brown, and made of some rough fabric. "
     isListed = (moved)
     hiddenUnder = [oilcan]
 ;
