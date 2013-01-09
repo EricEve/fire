@@ -432,7 +432,7 @@ rearOfHouse: Room 'Rear of House' 'rear[n] of the house'
 ;
 
 + farmhouseBackDoor: Door 'door'
-    
+    "The door looks very firmly shut. "
     lockability = lockableWithKey
     isLocked = true
     otherSide = farmhouseFrontDoor
