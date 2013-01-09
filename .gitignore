@@ -1,4 +1,8 @@
 debug/
 Scripts/
+obj/
 *.t3
 *.zip
+*.tdbconfig
+GameInfo.txt
+tadscrsh.txt
