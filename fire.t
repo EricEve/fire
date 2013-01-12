@@ -1214,14 +1214,20 @@ bedroom: Room 'Bedroom' 'bedroom'
     
 ++++ boxDial1: BoxDial 'first dial'
     correctSetting = 1
+    
+    listOrder = 10
 ;
 
 ++++ boxDial2: BoxDial 'second dial'
     correctSetting = 2
+    
+    listOrder = 20
 ;
 
 ++++ boxDial3: BoxDial 'third dial'
     correctSetting = 3
+    
+    listOrder = 30
 ;
 
 ++++ brassKey: Key 'brass key; medium sized'    

@@ -4,5 +4,6 @@ obj/
 *.t3
 *.zip
 *.tdbconfig
+*.orig
 GameInfo.txt
 tadscrsh.txt

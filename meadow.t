@@ -338,7 +338,7 @@ barn: Room 'Barn' 'barn'
         
     }
     
-    canClimb = (destination != nil)
+    isClimbable = (destination != nil)
     
     cannotClimbMsg = 'The ladder doesn\'t lead anywhere right now. '
     
