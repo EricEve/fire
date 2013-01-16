@@ -7,6 +7,8 @@
 dryad: Actor 'dryad; beautiful strange; nymph spirit woman girl; her'
     "She looks beautiful but strange, with a narrow, elfin face, green-tinged
     skin and and very long hair the colour of autumn leaves. "    
+    
+    allowKiss = true
 ;
 
 + Fixture '() hair; long brown wavy russet'
@@ -64,7 +66,7 @@ dryad: Actor 'dryad; beautiful strange; nymph spirit woman girl; her'
     <q>I <i>know</i> you can't be real!</q>\b
     <q>Can't I?</q> she retorts with a quizzical smile. <q>I can assure you I
     feel real enough to me! How do you know what's real and what isn't? Do you
-    really know what's really real?<.convnode real-2-node> "
+    really know what's really real?</q><.convnode real-2-node> "
     
     isActive = nodeActive
     convKeys = 'real-1-node'

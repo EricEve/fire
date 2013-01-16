@@ -538,6 +538,7 @@ road: Room 'Road' 'road'
         }        
     }
     
+    allowPourOntoMe = true
     
     iobjFor(PourOnto)
     {

@@ -45,6 +45,8 @@ gameMain: GameMainDef
     
     allVerbsAllowAll = nil
     
+    
+    
     showIntro()
     {       
         
@@ -79,7 +81,7 @@ gameMain: GameMainDef
     paraBrksBtwnSubcontents = nil
 //    useParentheticalListing = true
     
-    storeWholeObjectTable = true
+    storeWholeObjectTable = nil
     
     setAboutBox()
     {
@@ -119,6 +121,14 @@ gameMain: GameMainDef
 //    whenEnding = "kitchenVisit ending"
 //;
 //    
+
+Doer 'take blueBall'
+    
+    execAction(c)
+    {        
+        redirect(c, Examine);
+    }   
+;
 
 Doer 'go dir'
     exec(curCmd)
@@ -290,6 +300,7 @@ hall: Room, ShuffledEventList 'Hall' 'hall'
     allowPushTravel = true
     
     remoteDesc(pov) { "From here it's just a small red dot. "; }
+       
     
 ;
 
@@ -312,9 +323,17 @@ hall: Room, ShuffledEventList 'Hall' 'hall'
     
     allowReachOut(obj) { return nil; }
     autoGetOutToReach = nil
+    
+    dobjFor(Take)
+    {
+        check()
+        {
+            "It's a bit too bulky to lift. ";
+        }
+    }
 ;
 
-+ Thing 'pictures;bland old;landscapes'
++ Thing 'pictures;bland old;landscapes paintings'
     "They're just some bland old landscapes you picked up in a charity shop. "
     
     isDecoration = true
@@ -960,7 +979,7 @@ lounge: Room 'Lounge' 'lounge'
 + Window
 ;
 
-+ rug: Platform 'persian rug; old'
++ rug: Platform 'a Persian rug; old'
     "It's old and worn. "
     specialDesc = "An old Persian rug lies in the middle of the floor. "
     useSpecialDesc = (!moved)
@@ -1003,6 +1022,8 @@ hole: Fixture 'hole'
             if(gDobj.bulk > 2)
                 "{The subj dobj} {is} too big to fit in the hole. ";
         }     
+        
+        action() { notifyInsert(gDobj); }
     }
     
     iobjFor(PutOn)
@@ -1013,6 +1034,8 @@ hole: Fixture 'hole'
             if(gDobj != looseFloorboard)
                 "{The subj dobj} {does}n't really fit there. ";
         }
+        
+        action() { notifyInsert(gDobj); }
     }
     
     
@@ -1315,6 +1338,7 @@ backYard: Room 'Back Yard' 'back yard'
 + backDoorOutside: Door 'back door' 
      otherSide = backDoor
     isLocked = true
+    lockability = lockableWithKey
 ;
 
 
@@ -1360,18 +1384,23 @@ sky: MultiLoc, Distant 'sky; dark night; stars'
     visibleInDark = true
 ;
 
-ground: MultiLoc, Decoration 'ground'
-    
-    locationList = [outdoors]
-    
-    visibleInDark = true
-;
+//ground: MultiLoc, Decoration 'ground'
+//    
+//    locationList = [outdoors]
+//    
+//    visibleInDark = true
+//;
 
 
-floor: MultiLoc, Decoration 'floor;;ground'
-    
-    locationList = [indoors]
-;
+//floor: MultiLoc, Decoration 'floor;;ground'
+//    
+//    locationList = [indoors]
+//;
+//
+
+//modify Floor
+//    visibleInDark = true
+//;
 
 MultiLoc, Decoration 'ceiling'
  
@@ -1626,6 +1655,13 @@ george: Actor 'George; tall thin; man' @hall
     allowAction = true
     matchDobj = redBall
     isActive = !redBall.isIn(george)
+;
+
++ CommandTopic @Examine
+    "<q>George, would you <<actionPhrase>> please?</q> you ask.\b
+    <q>Very well,</q> he replies. "
+    
+    allowAction = true
 ;
 
 + KissTopic
